@@ -1,0 +1,395 @@
+
+<style>
+ 
+  .mainCanvasClass{
+    /* background-color: #1976d2; */
+    position: absolute; 
+    
+  left: 0; top: 0; /* в левый-верхний угол, и растянуть..  */
+   right: 0; bottom: 0; /*..указанием противоположных границ */
+  width: 100%;
+    height: 100%;
+    /* height: 100vh;  */
+  /* width: 100vw;  */
+  /* margin: 0%; */
+  /* padding: 0%; */
+    /* border-style: groove; */
+    /* border-width: 2px; */
+    /* border-color: #a0a0a0; */
+    
+  }
+  .info{
+    position: absolute;
+    left: 500px;
+
+    /* padding: 50%; */
+    /* align-items: center; */
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  /* :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 2px 0;
+    
+  }
+  .stat{
+    position: absolute;
+    z-index: 9000;
+  }
+
+  .VeiwMode{
+    position: absolute;
+    z-index: 9000;
+    left:  52px;
+    top: 60px;
+
+  }
+  .buttonViewMode{
+    z-index: 1000;
+			 background: rgba(0, 0, 0,0.75);			
+			 color: rgba(127,255,255,0.75);
+			 width: 30px;
+			 height: 30px;			 
+			 border-radius: 15px;
+			 text-align: center;
+
+  }
+  .buttonViewMode:hover {
+    color: #81f781;
+    background-color: #03a52b;
+  }
+
+  .buttonsDiv{
+    position: absolute;
+    z-index: 9000;
+    left:  5px;
+    top: 95px;
+      display: flex;
+    flex-direction: column;
+  }
+  .button{
+     z-index: 1000;
+			 background: rgba(0, 0, 0,0.75);			
+			 color: rgba(127,255,255,0.75);
+			 width: 150px;
+			 height: 30px;
+			 /* top:130px; */
+			 border-radius: 5px;
+			 text-align: center;
+
+    /* width: 150px;
+    height: 40px;
+    background-color: #07c937;
+    border-style:solid;
+    border-color: black;
+    color: white;
+    font-weight: 600;
+    border-radius: 25px ; */
+  }
+  .buttonFinishRoom{
+    background: rgba(247, 58, 58, 0.75);	
+  }
+  .button:hover {
+    color: #81f781;
+    background-color: #03a52b;
+  }
+
+  
+  .checkbox {
+	position: absolute;
+	z-index: -1;
+  top: 15px;
+	opacity: 0;
+	margin: 20px 0 0 20px;
+}
+.checkbox + label {
+	position: relative;
+	padding: 0 0 0 60px;
+	cursor: pointer;
+}
+.checkbox + label:before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 0;
+	width: 50px;
+	height: 18px;
+	border-radius: 11px;
+	background: #CDD1DA;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+	transition: .2s;
+}
+.checkbox + label:after {
+	content: '';
+	position: absolute;
+	top: 6.5px;
+	left: 2px;
+	width: 22px;
+	height: 14px;
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	transition: .2s;
+}
+.checkbox:checked + label:before {
+	background: rgb(12, 234, 241);
+}
+.checkbox:checked + label:after {
+	left: 26px;
+}
+.checkbox:focus + label:before {
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 0 0 3px rgba(255,255,0,.7);
+}
+
+
+  
+  .author{
+    position: absolute;
+    z-index: 9000;
+    right: 0px;
+    top: -10px;
+  }
+  .testInfo{
+    width: 145px;
+    /* height: 100px; */
+    position: absolute;
+    z-index: 9000;
+    padding-left: 5px;
+    left: 5px;
+    top: 210px;
+    color: rgb(255, 0, 0);
+    opacity: 0.5;
+    background-color: cyan;
+    border-style:solid;
+    border-width: 0.5px;
+    border-color: dodgerblue;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .InfoTitle{
+    position: relative;
+    left: 45%;
+  }
+
+  /* p {
+    margin: 32px;
+  } */
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    z-index: 8000;
+    height: 60px;
+    width: 100vw;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0,0.75);
+    color: rgba(127,255,255,0.75);
+    font-weight: 600;
+    /* font-size: 2rem; */
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .span {
+    margin: 32px auto;
+   
+  }
+
+  .content {
+    display: flex;
+    margin: 32px auto;
+    /* padding: 0 16px; */
+    /* max-width: 960px; */
+    flex-direction: column;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    /* border-style: groove; */
+    /* border-width: 2px; */
+  }
+
+ 
+  a,
+  a:visited,
+  a:hover {
+    color: rgba(5, 168, 168, 0.75);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgba(53, 248, 248, 0.808);
+  }
+  @media screen and  (max-width:  767px) {
+    .toolbar img {
+    margin: 0 3px;
+  }
+  .toolbar {
+    position: absolute;
+    z-index: 8000;
+    height: 60px;
+    width: 100vw;
+    /* margin: -4px; */
+    display: flex;
+    align-items:center;
+    background-color: rgba(0, 0, 0,0.75);
+    color: rgba(127,255,255,0.75);
+    font-weight: 400;  
+    font-size: 16px;  
+  }
+  .author{
+    position: absolute;
+    z-index: 9000;
+    width: 100px;
+    right: 0px;
+    top: -10px;
+    font-size: 11px;
+  }
+  .buttonsDiv{
+    position: absolute;
+    z-index: 9000;
+    left:  0px;
+    top: 60px;
+      display: flex;
+    flex-direction: column;
+    
+  }
+  .button{
+     z-index: 1000;
+			 background: rgba(0, 0, 0,0.75);			
+			 color: rgba(127,255,255,0.75);
+			 width: 100px;
+			 height: 20px;
+			 /* top:130px; */
+			 border-radius: 5px;
+			 text-align: center;
+       font-size: 10px;
+  }
+
+  .VeiwMode{
+    position: absolute;
+    z-index: 9000;
+    left: 100px;
+    top: 60px;
+
+  }
+  .buttonViewMode{
+    /* z-index: 1000; */
+			 background: rgba(0, 0, 0,0.75);			
+			 color: rgba(127,255,255,0.75);
+			 width: 25px;
+			 height: 25px;			 
+			 border-radius: 12px;
+			 text-align: center;
+       font-size: 10px;
+
+  }
+  .testInfo{
+    width: 95px;
+    /* height: 100px; */
+    position: absolute;
+    z-index: 9000;
+    /* padding-left: 5px; */
+     top: 142px;
+    left: 0px;
+   
+    color: rgb(255, 0, 0);
+    opacity: 0.5;
+    background-color: cyan;
+    border-style:solid;
+    border-width: 0.5px;
+    border-color: dodgerblue;
+    font-size:  9px;
+    font-weight: 400;
+  }
+  .InfoTitle{
+    position: relative;
+    left: 45%;
+  }
+  }
+  @media screen and  (max-width:  284px) {
+    .toolbar {
+      font-size: 12px;
+    }
+  }
+ 
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img
+    width="60"#b3ff00
+    alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+  />
+  <a href="https://threejs.org">
+  <img
+    width="90"
+    alt="Three JS Logo"
+    src="./assets/textures/Без названия.png"    
+  />
+  </a>
+  <span>Тестовое задание</span>
+  
+    <div class = "author">
+      <p >Автор <a href="http://dragon3dgraff.ru">{{usver}}</a></p>
+    </div> 
+</div>
+
+<!-- <div class="stat">{{stats.dom}}</div> -->
+<div class="VeiwMode">
+  <button class="buttonViewMode" (click) = button3DClick($event)>3D</button>
+  <button class="buttonViewMode" (click) = button2DClick($event)>2D</button>
+  
+</div>
+<div class="buttonsDiv">
+    <button #buttonRoomCreation class="button" (click) = buttonRoomClick($event)>Комната</button>    
+    <button class="button" (click) = buttonParallelepipedClick($event)>Параллелепипед</button>
+    <button class="button" (click) = buttonMoveClick($event)>Двигать</button>
+
+  
+
+    <button class="buttonFinishRoom" (click) = evbuttonFinishRoom($event) *ngIf="MODE === '_ROOMCREATION'" >Завершить</button>
+    
+    <input type="checkbox" class="checkbox" id="checkbox" [checked]="magnetMode"
+    (change)="magnetMode = !magnetMode"/>
+    <label for="checkbox">Привязка</label>
+
+    <div class="testInfo" >      
+      <h3 class="InfoTitle">Info</h3>
+      <p>{{coords}}</p>
+    </div>
+
+</div>
+
+
+<!-- <div class="info">
+  <span>{{coords}}</span>
+</div> -->
+<!-- <div class="content" role="main"> -->
+
+  <!-- <h1>Комната</h1>  -->   
+  <!-- <p>Автор <a href="http://dragon3dgraff.ru">{{usver}}</a></p> -->
+  
+  <canvas #canvas  id = mainCanvas class="mainCanvasClass" (click) = "onDocumentMouseClick($event)" (mousedown) = "onDocumentMouseDown($event)" (mousemove) = "onDocumentMouseMove($event)" (mouseup) = "onDocumentMouseUp($event)"> </canvas>
+  <!-- (touchstart) = "onDocumentMouseDown($event)" (touchmove) = "onDocumentMouseMove($event)"  (touchend) = "onDocumentMouseUp($event)" -->
+
+<!-- </div> -->
